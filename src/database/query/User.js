@@ -18,7 +18,7 @@ export const login = async (req, res) => {
   try {
     let user = await User.findOne({
       where: {
-        email: 'adhitamafikri@testa.com',
+        email: 'adhitamafikri@test.com',
         password: 'adhitamafikri'
       }
     });

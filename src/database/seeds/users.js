@@ -1,7 +1,7 @@
 module.exports = [
   {
-    username: 'Elena',
-    email: 'elena@gmail.com',
-    password: 'password123'
+    username: 'AdhitamaFikri',
+    email: 'adhitamafikri@test.com',
+    password: 'adhitamafikri'
   }
 ];
