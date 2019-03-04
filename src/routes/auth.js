@@ -1,10 +1,10 @@
 import express from 'express';
 const router = express.Router();
 
-import { sequelize } from '../database/definition'
+import { sequelize } from '../database/models';
 
 // import queries
-import { login } from '../database/query/User';
+import { login } from '../database/query/user';
 
 const authenticate = (req, res) => {
   console.log(process.env.DB_HOST, process.env.DB_DATABASE);

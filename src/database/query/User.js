@@ -1,5 +1,8 @@
-import { UserModel } from '../definition';
+import { sequelize, Sequelize } from '../models';
+import UserModel from '../models/user';
 import jwt from 'jsonwebtoken';
+
+const User = UserModel(sequelize, Sequelize);
 
 const getToken = (user, res) => {
   jwt.sign({ user }, 'secretKey', (err, token) => {
@@ -13,7 +16,7 @@ const getToken = (user, res) => {
 
 export const login = async (req, res) => {
   try {
-    let user = await UserModel.findOne({
+    let user = await User.findOne({
       where: {
         email: 'adhitamafikri@testa.com',
         password: 'adhitamafikri'
@@ -27,8 +30,9 @@ export const login = async (req, res) => {
 }
 
 export const index = async (req, res, next) => {
+  console.log(User);
   try {
-    let users = await UserModel.findAll();
+    let users = await User.findAll();
     res.json(users);
   } catch(err) {
     res.json({ err });

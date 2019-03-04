@@ -4,7 +4,7 @@ const router = express.Router();
 // queries
 import {
   index as getAllUsers
-} from '../database/query/User';
+} from '../database/query/user';
 
 router.route('/users')
   .get(getAllUsers)
