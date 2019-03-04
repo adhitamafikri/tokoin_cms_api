@@ -30,9 +30,10 @@ export const login = async (req, res) => {
 }
 
 export const index = async (req, res, next) => {
-  console.log(User);
   try {
-    let users = await User.findAll();
+    let users = await User.findAll({
+      attributes: { exclude: ['created_at', 'updated_at'] }
+    });
     res.json(users);
   } catch(err) {
     res.json({ err });

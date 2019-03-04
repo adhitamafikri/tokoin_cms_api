@@ -5,7 +5,9 @@ const Partner = PartnerModel(sequelize, Sequelize);
 
 export const index = async (req, res, next) => {
   try {
-    let partners = await Partner.findAll();
+    let partners = await Partner.findAll({
+      attributes: { exclude: ['created_at', 'updated_at'] }
+    });
     res.json(partners);
   } catch(err) {
     res.json({ err });
